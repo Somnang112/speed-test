@@ -21,11 +21,12 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        $this->configureDefaults();
+   public function boot(): void
+{
+    if (config('app.env') === 'production') {
+        \URL::forceScheme('https');
     }
-
+}
     /**
      * Configure default behaviors for production-ready applications.
      */

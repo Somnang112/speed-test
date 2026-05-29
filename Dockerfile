@@ -26,5 +26,5 @@ RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available
 RUN a2enmod rewrite
 
 RUN php artisan migrate --force
-
+RUN echo "ServerName speed-test-jee5.onrender.com" >> /etc/apache2/apache2.conf
 EXPOSE 80
